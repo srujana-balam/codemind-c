@@ -1,25 +1,28 @@
 #include<stdio.h>
 int main()
 {
-    int n,r,s=0;
+    int n,r,p,s=0;
     scanf("%d",&n);
-    while(n)
+    start:
+    s=0;
+    while(n>0)
     {
         r=n%10;
-        s+=r*r;
         n/=10;
-        if(n==0 && s>9)
-        {
-            n=s;
-            s=0;
-        }
+        p=r*r;
+        s+=p;
     }
-    if(s!=1)
+    n=s;
+    if(n==1 || n==7)
+    {
+        printf("True");
+    }
+    else if(n<10)
     {
         printf("False");
     }
     else
     {
-        printf("True");
+        goto start;
     }
 }
